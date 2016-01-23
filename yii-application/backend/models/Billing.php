@@ -51,4 +51,17 @@ class Billing extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Currency::className(), ['billing_id' => 'id']);
     }
+
+
+    /**
+     * Список связей
+     * @return array
+     */
+    public function relations()
+    {
+        return [
+            'billing'=> [ 'HAS_MANY', 'currency', 'billing_id' ],
+        ];
+    }
+
 }

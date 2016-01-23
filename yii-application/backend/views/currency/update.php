@@ -4,11 +4,12 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Currency */
+/* @var $billing_id array */
 
-$this->title = 'Update Currency: ' . ' ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Currencies', 'url' => ['index']];
+$this->title = 'Изменить валюту: ' . ' ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Вылюты', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Изменить';
 ?>
 <div class="currency-update">
 
@@ -16,6 +17,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <?= $this->render('_form', [
         'model' => $model,
+        'billing' => $billing_id,
     ]) ?>
 
 </div>

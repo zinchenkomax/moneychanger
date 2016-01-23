@@ -6,13 +6,17 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model app\models\Currency */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $billing array */
 ?>
 
 <div class="currency-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'billing_id')->textInput() ?>
+    <?= $form->field($model, 'billing_id' )->dropDownList(
+        $billing,
+        [ ['id' => 'name'],  'prompt'=>'Выберите платежную систему' ]
+    )->label('Название платежной системы'); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 

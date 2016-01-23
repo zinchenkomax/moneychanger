@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Billing */
 
-$this->title = 'Update Billing: ' . ' ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Billings', 'url' => ['index']];
+$this->title = 'Изменить платежную систему: ' . ' ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Платежные системы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Изменить';
 ?>
 <div class="billing-update">
 

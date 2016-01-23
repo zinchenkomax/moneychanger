@@ -72,4 +72,16 @@ class Currency extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Rate::className(), ['from_currency_id' => 'id']);
     }
+
+
+    /**
+     * Список связей
+     * @return array
+     */
+    public function relations()
+    {
+        return [
+            'billing'=> [ 'BELONGS_TO', 'billing', 'billing_id' ],
+        ];
+    }
 }

@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Billing */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Billings', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Платежные системы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="billing-view">

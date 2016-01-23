@@ -4,10 +4,12 @@ namespace backend\controllers;
 
 use Yii;
 use app\models\Currency;
+use app\models\Billing;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 
 /**
  * CurrencyController implements the CRUD actions for Currency model.
@@ -32,9 +34,11 @@ class CurrencyController extends Controller
      */
     public function actionIndex()
     {
+
         $dataProvider = new ActiveDataProvider([
-            'query' => Currency::find(),
+            'query' => Currency::find()->with('billing'),
         ]);
+
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
@@ -65,8 +69,10 @@ class CurrencyController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $billing_id = ArrayHelper::map( Billing::find()->asArray()->all(), 'id', 'name');
             return $this->render('create', [
                 'model' => $model,
+                'billing_id' => $billing_id,
             ]);
         }
     }
@@ -84,8 +90,10 @@ class CurrencyController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $billing_id = ArrayHelper::map( Billing::find()->asArray()->all(), 'id', 'name');
             return $this->render('update', [
                 'model' => $model,
+                'billing_id' => $billing_id,
             ]);
         }
     }

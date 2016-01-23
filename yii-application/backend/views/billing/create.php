@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Billing */
 
-$this->title = 'Create Billing';
-$this->params['breadcrumbs'][] = ['label' => 'Billings', 'url' => ['index']];
+$this->title = 'Добавить Платежную систему';
+$this->params['breadcrumbs'][] = ['label' => 'Платежные системы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="billing-create">

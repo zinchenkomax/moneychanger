@@ -6,7 +6,7 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Currencies';
+$this->title = 'Валюты';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="currency-index">
@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Currency', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить валюту в платежную систему', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -22,8 +22,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'billing_id',
+            [
+                'label' => 'Название платежной системы',
+                'value' => 'billing.name',
+            ],
             'name',
 
             ['class' => 'yii\grid\ActionColumn'],
