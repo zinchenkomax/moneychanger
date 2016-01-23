@@ -84,4 +84,34 @@ class Currency extends \yii\db\ActiveRecord
             'billing'=> [ 'BELONGS_TO', 'billing', 'billing_id' ],
         ];
     }
+
+
+    /**
+     * Получить список валют в виде массива,
+     * array(
+     *  номер валюты => название платежной системы + название валюты
+     *
+     * @return array
+     */
+    static function getCurrencyList(){
+        $currency_list = [];
+        foreach ( self::find()->with('billing')->asArray()->all() as $currency_record ) {
+
+            $currency_list[ $currency_record['id'] ] = sprintf( "%s - %s",
+                $currency_record['billing']['name'],
+                $currency_record['name']
+            );
+        }
+
+        return $currency_list;
+    }
+
+
+    /**
+     * Получить название валюты составленное из названия платежной системы и названия валюты
+     * @return string
+     */
+    function getName(){
+        return sprintf( '%s - %s', $this->billing->name, $this->name );
+    }
 }

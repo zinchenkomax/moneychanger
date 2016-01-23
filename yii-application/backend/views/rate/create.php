@@ -5,6 +5,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Rate */
+/* @var $currency array */
 
 $this->title = 'Create Rate';
 $this->params['breadcrumbs'][] = ['label' => 'Rates', 'url' => ['index']];
@@ -16,6 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $this->render('_form', [
         'model' => $model,
+        'currency' => $currency,
     ]) ?>
 
 </div>

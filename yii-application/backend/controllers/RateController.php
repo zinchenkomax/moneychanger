@@ -4,10 +4,13 @@ namespace backend\controllers;
 
 use Yii;
 use app\models\Rate;
+use app\models\Currency;
 use yii\data\ActiveDataProvider;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\helpers\ArrayHelper;
 
 /**
  * RateController implements the CRUD actions for Rate model.
@@ -33,8 +36,9 @@ class RateController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Rate::find(),
+            'query' => Rate::find()->with( 'fromCurrency', 'toCurrency' ),
         ]);
+
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
@@ -65,8 +69,12 @@ class RateController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+
+            $currency_list = Currency::getCurrencyList();
+
             return $this->render('create', [
                 'model' => $model,
+                'currency' => $currency_list,
             ]);
         }
     }

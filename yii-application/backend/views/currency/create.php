@@ -5,7 +5,7 @@ use yii\helpers\Html;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Currency */
-/* @var $billing_id array */
+/* @var $billing array */
 
 $this->title = 'Добавить валюту в платежную систему';
 $this->params['breadcrumbs'][] = ['label' => 'Валюты', 'url' => ['index']];
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('_form',
         [
             'model' => $model,
-            'billing' => $billing_id,
+            'billing' => $billing,
         ]
     ) ?>
 

@@ -67,4 +67,24 @@ class Rate extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Currency::className(), ['id' => 'from_currency_id']);
     }
+
+    /**
+     * Список связей
+     * @return array
+     */
+    public function relations()
+    {
+        return [
+            'fromCurrency'=> [ 'BELONGS_TO', 'currency', 'from_currency_id' ],
+            'toCurrency'=> [ 'BELONGS_TO', 'currency', 'to_currency_id' ],
+        ];
+    }
+
+    /**
+     * Получить название валюты составленное из названия платежной системы и названия валюты
+     * @return string
+     */
+    function getCurrencyName(){
+        return sprintf( "%s - %s", $this->fromCurrency->billing->name, $this->fromCurrency->name );
+    }
 }

@@ -69,10 +69,10 @@ class CurrencyController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            $billing_id = ArrayHelper::map( Billing::find()->asArray()->all(), 'id', 'name');
+            $billing = ArrayHelper::map( Billing::find()->asArray()->all(), 'id', 'name');
             return $this->render('create', [
                 'model' => $model,
-                'billing_id' => $billing_id,
+                'billing' => $billing,
             ]);
         }
     }
