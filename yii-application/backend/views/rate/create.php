@@ -7,8 +7,8 @@ use yii\helpers\Html;
 /* @var $model app\models\Rate */
 /* @var $currency array */
 
-$this->title = 'Create Rate';
-$this->params['breadcrumbs'][] = ['label' => 'Rates', 'url' => ['index']];
+$this->title = 'Добавить курс';
+$this->params['breadcrumbs'][] = ['label' => 'Курсы валют', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rate-create">

@@ -92,8 +92,10 @@ class RateController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+            $currency_list = Currency::getCurrencyList();
             return $this->render('update', [
                 'model' => $model,
+                'currency' => $currency_list,
             ]);
         }
     }

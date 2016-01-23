@@ -23,17 +23,23 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-//            'id',
-//            'from_currency_id',
             [
                 'label' => 'Базовая валюта',
-                'value' => 'fromCurrency.billing.name',
+                'value' => function ($data) { return sprintf( "%s - %s",
+                    $data->fromCurrency->billing->name,
+                    $data->fromCurrency->name
+                    );
+                },
             ],
+
             [
                 'label' => 'Валюта конвертации',
-                'value' => 'toCurrency.name',
+                'value' => function ($data) { return sprintf( "%s - %s",
+                    $data->toCurrency->billing->name,
+                    $data->toCurrency->name
+                    );
+                },
             ],
-//            'to_currency_id',
             'from_amount',
             'to_amount',
 
