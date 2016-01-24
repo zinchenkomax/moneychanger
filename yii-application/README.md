@@ -14,4 +14,4 @@ MoneyChanger
 Мой номер телефона: 067-124-72-47
 Буду рад получить от вас звонок
 
-Сайт доступен по адресу [http://moneychanger.zinchenkomax.com.ua](moneychanger.zinchenkomax.com.ua).
+Сайт доступен по адресу [moneychanger.zinchenkomax.com.ua](http://moneychanger.zinchenkomax.com.ua).
