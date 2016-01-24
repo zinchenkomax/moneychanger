@@ -35,4 +35,38 @@ jQuery(function($){
             });
         } );
     });
+
+
 });
+
+function getRate( obj ){
+    console.log( $(obj).attr('id') + " selected: " + $(obj).val() );
+    var from_currency_id = $('#from_currency').val();
+    var to_currency_id = $('#to_currency').val();
+    console.log( "selected pare: " + from_currency_id + ' to ' + to_currency_id );
+
+    if( from_currency_id && to_currency_id ){
+        $.post( 'rate/get-rate', { 'from_currency_id': from_currency_id, 'to_currency_id': to_currency_id },
+            function( data ){
+                if( data ){
+                    console.log( 'Ответ сервера: ');
+                    console.log( data.result );
+                    //console.log( data.rate.from_amount );
+                    //console.log( data.rate.to_amount );
+
+                    if( data.result == 'success' ){
+                        $("#result-rate").text( data.rate.from_amount + ' : ' + data.rate.to_amount );
+                        $("#result-response").text( '' );
+                    }else{
+                        $("#result-response").text( data.result );
+                        $("#result-rate").text( '' );
+                    }
+                }else{
+                    console.log( 'Ответ сервера пустой, наверное не выбрана вторая валюта' )
+                }
+            }
+        );
+    }
+
+
+}
