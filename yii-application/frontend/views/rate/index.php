@@ -6,6 +6,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+
+$this->title = 'Узнать курс';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <h1>Узнать курс</h1>
 
@@ -25,7 +28,7 @@ $form = ActiveForm::begin([
                         ]
                     )->dropDownList( $billing, [
                             ['id' => 'base-billing'],
-                            'prompt'=>'Выберите базовую платежную систему',
+                            'prompt'=>'Выберите платежную систему',
                         ]
                     )->label('Базовая платежная система'); ?>
                 </div>
@@ -50,7 +53,7 @@ $form = ActiveForm::begin([
                         ]
                     )->dropDownList( $billing, [
                             ['id' => 'base-billing'],
-                            'prompt'=>'Выберите платежную систему конвертации',
+                            'prompt'=>'Выберите платежную систему',
                         ]
                     )->label('Платежная система конвертации'); ?>
                 </div>
